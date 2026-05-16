@@ -6,7 +6,7 @@ contract PiggyBank {
         uint amount;
         address sender;
     }
-    Deposit[]  deposits;
+    Deposit[] deposits;
 
     address public owner;
 
@@ -42,7 +42,7 @@ contract PiggyBank {
     }
 
     // Adds the deposit received to the array.
-    function receiveAmount() external payable{
+    receive() external payable {
         uint _amount = msg.value;
         address _sender = msg.sender;
 
@@ -50,15 +50,15 @@ contract PiggyBank {
             revert InvalidAmount(_amount);
         }
 
-        deposits.push(Deposit({
-            amount: _amount,
-            sender: _sender
-        }));
+        deposits.push(Deposit({amount: _amount, sender: _sender}));
 
         emit Deposited(_amount, _sender);
     }
 
-    function withdraw(uint _amount, address _address) public onlyOwner() validWithdrawal(_amount) {
+    function withdraw(
+        uint _amount,
+        address _address
+    ) public onlyOwner validWithdrawal(_amount) {
         (bool success, ) = payable(_address).call{value: _amount}("");
 
         require(success, "Ether transfer failed.");
