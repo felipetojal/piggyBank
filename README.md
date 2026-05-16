@@ -26,7 +26,7 @@ This project was built to demonstrate fundamental and intermediate Solidity conc
 - **Environment:** EVM 
 - **Development Tool:** Remix IDE 
 
-## 🚀 How to Deploy and Test (Remix IDE)
+## How to Deploy and Test (Remix IDE)
 
 1. Open [Remix IDE](https://remix.ethereum.org/).
 2. Create a new file named `PiggyBank.sol` and paste the contract code.
@@ -36,6 +36,6 @@ This project was built to demonstrate fundamental and intermediate Solidity conc
 6. **To Deposit:** Put a value (e.g., `100 wei`) in the "Value" field at the top, scroll down to the "Low level interactions" section of the deployed contract, and click **Transact** (this triggers the `receive()` function).
 7. **To Withdraw:** Ensure you are using the owner account, input an amount and a destination address into the `withdraw` function, and execute.
 
-## 📄 License
+## License
 
 This project is licensed under the GPL-3.0 License.
